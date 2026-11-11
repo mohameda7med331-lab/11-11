@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0928">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>11:11 — Make a Wish</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--s1:#0b0928;--s2:#241463;--s3:#4a2a92;--ink:#fff3e4;--soft:#d8cdf5;--glow:#ffb98a;--vio:#8b5cf6;--vio2:#6d3fe0;--line:rgba(190,160,255,.45);--glass:rgba(255,255,255,.07)}
+:root[data-theme="dawn"]{--s1:#2a1a63;--s2:#6a3a9e;--s3:#d27fb6;--glow:#ffd3a8;--vio:#c46fe0;--vio2:#9a44c4}
+html{background:#0b0928;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:"Playfair Display",Georgia,serif;font-size:18px;line-height:1.6;background:#0b0928 linear-gradient(180deg,var(--s1),var(--s2) 55%,var(--s3));min-height:100vh;overflow-x:hidden}
+.script{font-family:"Great Vibes","Brush Script MT",cursive;font-weight:400}
+#sky{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero{position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;isolation:isolate}
+.cloud{position:absolute;border-radius:50%;filter:blur(38px);pointer-events:none}
+.c1{right:-10%;top:18%;width:46vw;height:34vh;background:radial-gradient(closest-side,rgba(170,120,255,.55),transparent)}
+.c2{left:-14%;top:32%;width:44vw;height:26vh;background:radial-gradient(closest-side,rgba(120,80,230,.5),transparent)}
+.c3{left:20%;bottom:-6%;width:70vw;height:30vh;background:radial-gradient(closest-side,rgba(255,150,200,.38),transparent)}
+.c4{right:0;bottom:8%;width:36vw;height:30vh;background:radial-gradient(closest-side,rgba(210,150,255,.5),transparent)}
+.top{position:relative;z-index:5;width:100%;max-width:1500px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding:22px clamp(16px,3.5vw,56px) 0}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink)}
+.brand svg{width:78px;filter:drop-shadow(0 0 8px rgba(190,150,255,.8))}
+.brand b{display:block;font-size:1.55rem;line-height:1.1;font-weight:500}
+.brand small{display:block;font-size:.85rem;color:var(--soft)}
+nav{display:flex;gap:clamp(8px,2.4vw,40px);padding:6px 10px}
+nav a,nav button{font:inherit;font-size:.98rem;color:var(--soft);background:none;border:0;padding:10px 14px;text-decoration:none;cursor:pointer;display:flex;align-items:center;gap:8px;position:relative}
+nav a.on{color:#fff}
+nav a.on::after{content:"";position:absolute;left:14px;right:14px;bottom:0;height:2px;background:linear-gradient(90deg,transparent,var(--glow),transparent)}
+nav i{font-style:normal;color:#b99cff}
+.theme{justify-self:end;width:78px;height:40px;border-radius:20px;border:1.5px solid var(--line);background:rgba(20,10,60,.5);cursor:pointer;position:relative;color:#fff}
+.theme span{position:absolute;left:10px;top:5px;font-size:20px;line-height:28px}
+.theme::after{content:"";position:absolute;right:6px;top:6px;width:26px;height:26px;border-radius:50%;background:rgba(190,160,255,.28)}
+.moon{position:absolute;z-index:1;left:clamp(8px,10vw,170px);top:clamp(110px,16vh,170px);width:clamp(110px,19vw,330px);mix-blend-mode:screen;-webkit-mask-image:radial-gradient(closest-side,#000 70%,transparent);mask-image:radial-gradient(closest-side,#000 70%,transparent)}
+.jar{position:absolute;z-index:3;left:0;bottom:0;width:min(30vw,500px);-webkit-mask-image:linear-gradient(to right,#000 82%,transparent),linear-gradient(to bottom,transparent,#000 16%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,#000 82%,transparent),linear-gradient(to bottom,transparent,#000 16%);mask-composite:intersect}
+.jar img{width:100%;display:block}
+.jar svg{position:absolute;inset:0;width:100%;height:100%}
+.girl{position:absolute;z-index:3;right:0;bottom:0;width:min(27vw,450px);-webkit-mask-image:linear-gradient(to left,#000 80%,transparent),linear-gradient(to bottom,transparent,#000 22%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to left,#000 80%,transparent),linear-gradient(to bottom,transparent,#000 22%);mask-composite:intersect}
+.bf{position:absolute;z-index:3;width:clamp(34px,4vw,70px);mix-blend-mode:screen;animation:float 7s ease-in-out infinite;-webkit-mask-image:radial-gradient(closest-side,#000 60%,transparent);mask-image:radial-gradient(closest-side,#000 60%,transparent)}
+@keyframes float{50%{transform:translate(-10px,-22px) rotate(8deg)}}
+.lite circle{animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.35}}
+.lite{filter:drop-shadow(0 0 4px #ffb347)}
+.stage{position:relative;z-index:4;text-align:center;padding:2vh 16px 120px;width:100%;max-width:900px}
+.dateline{display:flex;align-items:center;justify-content:center;gap:14px;font-size:clamp(1.5rem,3.2vw,2.5rem);letter-spacing:.12em;margin-top:3vh}
+.dateline::before,.dateline::after{content:"★";font-size:.5em;color:var(--glow)}
+.dateline em{font-style:normal}
+.dateline .l{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--glow))}
+.dateline .r{flex:1;height:1px;background:linear-gradient(270deg,transparent,var(--glow))}
+.clockwrap{position:relative;margin:0 auto;width:100%}
+.orbit{position:absolute;left:50%;top:50%;width:128%;max-width:1200px;transform:translate(-50%,-52%);pointer-events:none}
+h1.clock{margin:0;position:relative;font-size:clamp(100px,22vw,270px);line-height:1.02;font-weight:700;color:#fff1e0;text-shadow:0 0 14px rgba(255,200,150,.95),0 0 46px rgba(255,160,120,.7),0 0 100px rgba(255,120,160,.5)}
+.live h1.clock{animation:pulse 1.4s ease-in-out infinite alternate}
+@keyframes pulse{to{text-shadow:0 0 24px #ffd9b0,0 0 90px #ff9a78,0 0 180px #ff6fa0}}
+.wishword{font-size:clamp(3.4rem,8vw,6.2rem);line-height:1.05;margin:-.2em 0 .1em;text-shadow:0 0 18px rgba(200,170,255,.7)}
+.sub{margin:0;font-size:clamp(1rem,1.7vw,1.35rem)}
+.next{margin:8px 0 0;font-size:.9rem;color:var(--soft);min-height:1.5em}
+.live .next{color:var(--glow);font-weight:700}
+.form{display:flex;gap:16px;margin:26px auto 0;max-width:820px;flex-wrap:wrap;justify-content:center}
+.field{flex:1 1 300px;display:flex;align-items:center;gap:12px;padding:0 22px;height:64px;border-radius:32px;border:1.5px solid var(--line);background:rgba(70,40,150,.35);backdrop-filter:blur(6px)}
+.field b{color:#e9dcff;font-size:1.6rem;font-weight:400}
+.field input{flex:1;min-width:0;background:none;border:0;outline:0;color:#fff;font:inherit;font-size:1.15rem}
+.field input::placeholder{color:#b9a8e4}
+.save{height:64px;padding:0 34px;border-radius:32px;border:1.5px solid #b79bff;cursor:pointer;color:#fff;font:inherit;font-size:1.2rem;display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,#9a6bff,var(--vio2));box-shadow:0 0 30px rgba(139,92,246,.6)}
+.save svg{width:26px;height:26px}
+.pill{position:absolute;z-index:4;left:50%;bottom:5vh;transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:12px 30px;border-radius:36px;border:1.5px solid var(--line);background:rgba(40,20,100,.5);backdrop-filter:blur(6px);text-align:center;font-size:.98rem;width:max-content;max-width:calc(100% - 32px)}
+.music{position:absolute;z-index:5;left:clamp(16px,3.5vw,56px);bottom:3vh;display:flex;align-items:center;gap:12px;color:var(--soft);background:none;border:0;font:inherit;cursor:pointer}
+.sw{width:44px;height:26px;border-radius:13px;background:rgba(255,255,255,.2);position:relative;transition:background .2s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}
+.music[aria-pressed="true"] .sw{background:var(--vio)}
+.music[aria-pressed="true"] .sw::after{transform:translateX(18px)}
+.vibes{position:absolute;z-index:5;right:clamp(16px,3.5vw,56px);bottom:3vh;font-size:2rem;color:var(--soft);border-bottom:1px solid var(--line)}
+.low{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:70px 20px 40px}
+.low h2{font-size:2.2rem;margin:0 0 6px;font-weight:500}
+.low p{color:var(--soft);margin:0 0 18px}
+.low section{margin-bottom:56px}
+.wishes{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.wishes li{padding:7px 18px;border-radius:30px;border:1px solid var(--line);background:var(--glass)}
+.rise{position:fixed;z-index:20;left:50%;top:60%;transform:translateX(-50%);font-size:1.8rem;color:#ffd9b0;white-space:nowrap;text-shadow:0 0 20px #ff9a78;pointer-events:none;animation:rise 3s ease-out forwards}
+@keyframes rise{to{transform:translate(-50%,-45vh) scale(.5);opacity:0}}
+@media (max-width:760px){
+  nav a span{display:none}nav{gap:0}
+  .brand svg{width:54px}.brand b{font-size:1.2rem}
+  .girl,.bf.b3,.vibes{display:none}
+  .jar{width:46vw}.stage{padding-bottom:180px}.pill{bottom:60px}.music{bottom:14px}.orbit{width:150%}
+}
+</style>
+</head>
+<body>
+<header class="hero" id="home">
+  <canvas id="sky"></canvas>
+  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div>
+
+  <div class="top">
+    <a class="brand" href="#home">
+      <svg viewBox="0 0 120 60" fill="none" stroke="#e5d4ff" stroke-width="7" stroke-linecap="round"><path d="M60 30C48 8 8 8 8 30s40 22 52 0c12-22 52-22 52 0s-40 22-52 0z"/></svg>
+      <span><b>11:11</b><small>Wish · Believe · Receive</small></span>
+    </a>
+    <nav>
+      <a href="#home" class="on"><i>⌂</i><span>Home</span></a>
+      <a href="#about"><i>★</i><span>About</span></a>
+      <a href="#wishes"><i>♥</i><span>Wishes</span></a>
+      <button type="button" id="navMusic"><i>♫</i><span>Music</span></button>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Theme"><span>☾</span></button>
+  </div>
+
+  <img class="moon" alt="" src="images/moon.jpg">
+
+  <div class="stage" id="stage">
+    <div class="dateline"><span class="l"></span><em>11 / 11</em><span class="r"></span></div>
+    <div class="clockwrap">
+      <svg class="orbit" viewBox="0 0 1000 320" fill="none">
+        <defs><linearGradient id="og" x1="0" x2="1"><stop offset="0" stop-color="#ffcf9a" stop-opacity=".9"/><stop offset=".5" stop-color="#c9a8ff" stop-opacity=".25"/><stop offset="1" stop-color="#ffcf9a" stop-opacity=".95"/></linearGradient></defs>
+        <g transform="rotate(-5 500 160)"><ellipse cx="500" cy="160" rx="470" ry="78" stroke="url(#og)" stroke-width="2.5"/></g>
+        <g fill="#fff3d8"><path d="M968 118l5 14 14 5-14 5-5 14-5-14-14-5 14-5z"/><path d="M40 190l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/></g>
+      </svg>
+      <h1 class="clock">11:11</h1>
+    </div>
+    <div class="wishword script">Make a Wish ♡</div>
+    <p class="sub">On 11/11 at 11:11… dreams get closer ♡</p>
+    <p class="next" id="next"></p>
+    <div class="form">
+      <label class="field"><b>✦</b><input id="wish" type="text" maxlength="70" placeholder="Write your wish here…"></label>
+      <button class="save" id="save" type="button"><svg viewBox="0 0 24 24" fill="#fff"><path d="M2 12 22 2l-5 20-5-8z"/></svg>Save Wish</button>
+    </div>
+  </div>
+
+  <div class="jar"><img alt="" src="images/jar.jpg"><svg viewBox="0 0 420 531"><g class="lite" id="lights"></g></svg></div>
+  <img class="girl" alt="" src="images/girl.jpg">
+  <img class="bf" style="right:6%;top:36%" alt="" src="images/butterfly1.jpg">
+  <img class="bf" style="right:12%;top:50%;animation-delay:-2s" alt="" src="images/butterfly2.jpg">
+  <img class="bf b3" style="right:18%;top:66%;animation-delay:-4s" alt="" src="images/butterfly3.jpg">
+
+  <div class="pill"><span>☆</span><span>A special moment, a magical time…<br>Believe in the magic of 11:11 ♡</span></div>
+  <button class="music" id="music" type="button" aria-pressed="false"><span>🎧</span><span>Play Music</span><span class="sw"></span></button>
+  <div class="vibes script">Good Vibes Only ♡</div>
+</header>
+
+<div class="low">
+  <section id="wishes">
+    <h2>Your wishes</h2>
+    <p>Every wish you save lights up the jar.</p>
+    <ul class="wishes" id="wlist"><li id="empty">No wishes yet. Write the first one above.</li></ul>
+  </section>
+  <section id="about">
+    <h2>Why 11:11?</h2>
+    <p>Four ones in a row feel like a fresh start. Pick a wish, say it quietly, and send it when the moment arrives.</p>
+  </section>
+</div>
+
+<!-- ✦ مكان الأغنية: ملف song.mp3 لازم يبقى جنب index.html ✦ -->
+<audio id="song" src="song.mp3" loop preload="auto"></audio>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var NS="http://www.w3.org/2000/svg";
+
+  /* jar lights */
+  function addLight(x,y){
+    var c=document.createElementNS(NS,"circle");
+    c.setAttribute("cx",x);c.setAttribute("cy",y);c.setAttribute("r",6);c.setAttribute("fill","#fff3c8");
+    $("lights").appendChild(c);
+  }
+
+  /* wishes */
+  function save(){
+    var inp=$("wish"),v=inp.value.trim();
+    if(!v){inp.focus();return}
+    var e=$("empty");if(e)e.remove();
+    var li=document.createElement("li");li.textContent="✦ "+v;$("wlist").prepend(li);
+    var r=document.createElement("div");r.className="rise script";r.textContent=v;document.body.appendChild(r);
+    setTimeout(function(){r.remove()},3100);
+    addLight(100+Math.random()*150,170+Math.random()*160);
+    burst();inp.value="";inp.focus();
+  }
+  $("save").addEventListener("click",save);
+  $("wish").addEventListener("keydown",function(e){if(e.key==="Enter")save()});
+
+  /* countdown to the next 11:11 */
+  function nextT(n){var y=n.getFullYear(),a=[];[y,y+1].forEach(function(z){a.push(new Date(z,10,11,11,11),new Date(z,10,11,23,11))});
+    for(var i=0;i<a.length;i++)if(a[i]>n)return a[i];return a[3]}
+  var p=function(n){return String(n).padStart(2,"0")};
+  function tick(){
+    var n=new Date(),h=n.getHours(),
+      live=n.getMonth()===10&&n.getDate()===11&&(h===11||h===23)&&n.getMinutes()===11;
+    document.body.classList.toggle("live",live);
+    if(live){$("next").textContent="It’s 11:11 right now. Make your wish!";return}
+    var d=Math.floor((nextT(n)-n)/1000),days=Math.floor(d/86400);
+    $("next").textContent="Next 11:11 in "+(days?days+"d ":"")+p(Math.floor(d%86400/3600))+":"+p(Math.floor(d%3600/60))+":"+p(d%60);
+  }
+  tick();setInterval(tick,1000);
+
+  /* theme */
+  $("theme").addEventListener("click",function(){
+    var r=document.documentElement;r.dataset.theme=r.dataset.theme==="dawn"?"":"dawn";
+  });
+
+  /* stars + sparkles */
+  var cv=$("sky"),cx=cv.getContext("2d"),st=[],sp=[],W,H;
+  function size(){var h=cv.parentElement,d=devicePixelRatio||1;W=h.clientWidth;H=h.clientHeight;
+    cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);st=[];
+    for(var i=0,n=Math.round(W*H/5500);i<n;i++)st.push({x:Math.random()*W,y:Math.random()*H*.85,r:Math.random()*1.5+.3,p:Math.random()*6.3})}
+  function burst(){var b=$("stage").getBoundingClientRect();
+    for(var i=0;i<36;i++){var a=Math.random()*6.28,s=Math.random()*3.4+1;sp.push({x:W/2,y:b.top+b.height*.7,vx:Math.cos(a)*s,vy:Math.sin(a)*s-2,l:1})}}
+  function draw(t){cx.clearRect(0,0,W,H);
+    st.forEach(function(s){cx.fillStyle="rgba(255,245,255,"+(.3+.5*Math.abs(Math.sin(t/1100+s.p)))+")";cx.beginPath();cx.arc(s.x,s.y,s.r,0,6.3);cx.fill()});
+    for(var j=sp.length-1;j>=0;j--){var q=sp[j];q.x+=q.vx;q.y+=q.vy;q.vy+=.05;q.l-=.014;
+      if(q.l<=0){sp.splice(j,1);continue}cx.fillStyle="rgba(255,200,130,"+q.l+")";cx.beginPath();cx.arc(q.x,q.y,2.4,0,6.3);cx.fill()}
+    requestAnimationFrame(draw)}
+  addEventListener("resize",size);size();requestAnimationFrame(draw);
+
+  /* MUSIC: song.mp3 فقط */
+  var song=$("song"),on=false;
+  function music(){
+    on=!on;
+    if(on){song.play()}else{song.pause()}
+    $("music").setAttribute("aria-pressed",on);
+  }
+  $("music").addEventListener("click",music);
+  $("navMusic").addEventListener("click",music);
+})();
+</script>
+</body>
+</html>
